@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="q-stepper" data-current="1">
+    <ol>
+      <li data-step="1">Mieux vous connaître</li>
+      <li data-step="2">Vos habitudes</li>
+      <li data-step="3">Votre espace assuré</li>
+      <li data-step="4">Au cœur de ma santé</li>
+      <li data-step="5">Contact</li>
+    </ol>
+  </div>
+  
+  <script>
+  (function () {
+    var stepper = document.querySelector(".q-stepper");
+    if (!stepper) return;
+  
+    var current = parseInt(stepper.getAttribute("data-current"), 10);
+    var items = stepper.querySelectorAll("li");
+  
+    items.forEach(function (item) {
+      var step = parseInt(item.getAttribute("data-step"), 10);
+  
+      if (step < current) item.classList.add("done");
+      if (step === current) item.classList.add("active");
+    });
+  })();
+  </script>
+</body>
+</html>
